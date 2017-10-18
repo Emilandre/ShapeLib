@@ -18,7 +18,7 @@ public:
 	friend std::istream& operator>>(std::istream& os, Point2D&);
 
 	int operator==(const Point2D &p);
-	bool Save(const std::string & fileName);
+	//bool Save(const std::string & fileName);
 	friend auto operator+(Point2D &p1, Point2D &p2);
 private:
 	double x;
