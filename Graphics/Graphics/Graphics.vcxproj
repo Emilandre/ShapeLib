@@ -147,6 +147,7 @@
     <ClInclude Include="GraphicLib.h" />
     <ClInclude Include="line2D.h" />
     <ClInclude Include="OperatorOverloads.h" />
+    <ClInclude Include="point3D.h" />
     <ClInclude Include="point2D.h" />
     <ClInclude Include="polygon2D.h" />
     <ClInclude Include="stdafx.h" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClCompile Include="Line2D.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Point3D.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="polygon2D.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -39,6 +39,9 @@
     <ClInclude Include="GraphicLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="point3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="polygon2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Point3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
