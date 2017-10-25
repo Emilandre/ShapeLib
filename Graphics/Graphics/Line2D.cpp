@@ -5,7 +5,5 @@
 
 Line2D::~Line2D()
 {
-	std::cout << "Deleting";
-	delete start;
-	delete end;
+	
 }

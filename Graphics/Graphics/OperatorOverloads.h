@@ -23,32 +23,29 @@ std::istream& operator>>(std::istream& is, Point2D &p) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Line2D &l) {
-	return os << '[' << *l.start << '|' << *l.end << ']' << std::endl;
+	return os << '[' << l.points[0] << '|' << l.points[1] << ']';
 }
 std::istream& operator>>(std::istream& is, Line2D &l) {
 	char c = is.peek();
 		
 	if (c == '[') {
 		is >> c;
-		is >> l.getStart();
+		is >> l.points[0];
 	}
 	c = is.peek();
 	if (c == '|') {
 		is >> c;
-		is >> l.getEnd();
+		is >> l.points[1];
 	}
 	return is;
 }
 
 
-std::ostream& operator<<(std::ostream& os, const Polygon2D &p) {
+std::ostream& operator<<(std::ostream& os, const Polygon2D &py) {
 	os << "{";
-	for (int i = 0; i < p.numPoints; i++) {
-		os << p.points[i];
-		if (i < p.numPoints - 1) {
-			os << '|';
+		for (const Point2D &p : py.points) {
+			os << p;
 		}
-	}
 	return os << "}";
 }
 std::istream& operator>>(std::istream& is, Polygon2D &py) {
@@ -75,15 +72,7 @@ std::istream& operator>>(std::istream& is, Polygon2D &py) {
 			}
 		}
 	}
-	Point2D *rPoints = new Point2D[numCount];
-	int i = 0;
-	for (Point2D &p : points) {
-		rPoints[i] = p;
-		i++;
-	}
-	py.setNumPoints(numCount);
-	py.setPoints(rPoints);
-
+	py.setPoints(points);
 	return is;
 }
 
@@ -91,31 +80,28 @@ auto operator+(Point2D &p1, Point2D &p2) {
 	return Line2D(p1, p2);
 }
 auto operator+( const Line2D &l1,  const Point2D &p2) {
-	Point2D a = Point2D(*l1.start);
-	Point2D b = Point2D(*l1.end);
-	Point2D c = Point2D(p2);
-	return Polygon2D(a, b, c);
+	std::vector<Point2D> p = l1.points;
+	p.push_back(p2);
+	return Polygon2D(p);
 }
 auto operator+( const Point2D &p1, const Line2D &l1 ) {
 	return l1+p1;
 }
-auto operator+(Line2D &l1, Line2D &l2) {
-	Point2D *points = new Point2D[4];
-	points[0] = l1.getStart();
-	points[1] = l1.getEnd();
-	points[2] = l2.getStart();
-	points[3] = l2.getEnd();
-	return  Polygon2D(points,4);
+auto operator+(const Line2D &l1, const Line2D &l2) {
+	std::vector<Point2D> p = l1.points;
+	p.push_back(l2.points[0]);
+	p.push_back(l2.points[1]);
+
+	return  Polygon2D(p);
 }
 
-Polygon2D operator+(Polygon2D &p1, Polygon2D &p2) {
-	Point2D *newPoints = new Point2D[p1.numPoints + p2.numPoints];
-	for (int i = 0; i < p1.numPoints; i++) {
-		newPoints[i] = p1.points[i];
-	}
-	for (int i = 0; i < p2.numPoints; i++) {
-		newPoints[i + p1.numPoints] = p2.points[i];
-	}
-	return Polygon2D(newPoints, p1.numPoints + p2.numPoints);
+Polygon2D operator+(Polygon2D &p1, Line2D &l) {
+	return Polygon2D(p1.points, l.getPoints());
+}
+Polygon2D operator+(Polygon2D &p1, Point2D &p) {
 
+	return Polygon2D(p1.points, p);
+}
+Polygon2D operator+(Polygon2D &p1, Polygon2D &p2) {
+	return Polygon2D(p1.points,p2.points);
 }
