@@ -22,8 +22,8 @@ std::istream& operator>>(std::istream& is, Point2D &p) {
 	return is;
 }
 
-std::ostream& operator<<(std::ostream& os, const  Line2D l) {
-	return os << '[' <<*l.start << '|' << *l.end << ']'<< std::endl;
+std::ostream& operator<<(std::ostream& os, const Line2D &l) {
+	return os << '[' << *l.start << '|' << *l.end << ']' << std::endl;
 }
 std::istream& operator>>(std::istream& is, Line2D &l) {
 	char c = is.peek();
@@ -41,7 +41,7 @@ std::istream& operator>>(std::istream& is, Line2D &l) {
 }
 
 
-std::ostream& operator<<(std::ostream& os, const  Polygon2D p) {
+std::ostream& operator<<(std::ostream& os, const Polygon2D &p) {
 	os << "{";
 	for (int i = 0; i < p.numPoints; i++) {
 		os << p.points[i];
@@ -81,20 +81,22 @@ std::istream& operator>>(std::istream& is, Polygon2D &py) {
 		rPoints[i] = p;
 		i++;
 	}
-	py = Polygon2D(rPoints, numCount);
+	py.setNumPoints(numCount);
+	py.setPoints(rPoints);
+
 	return is;
 }
 
 auto operator+(Point2D &p1, Point2D &p2) {
 	return Line2D(p1, p2);
 }
-auto operator+( Line2D &l1,  Point2D &p2) {
-	Point2D a = Point2D(l1.getStart());
-	Point2D b = Point2D(l1.getEnd());
+auto operator+( const Line2D &l1,  const Point2D &p2) {
+	Point2D a = Point2D(*l1.start);
+	Point2D b = Point2D(*l1.end);
 	Point2D c = Point2D(p2);
 	return Polygon2D(a, b, c);
 }
-auto operator+( Point2D &p1, Line2D &l1 ) {
+auto operator+( const Point2D &p1, const Line2D &l1 ) {
 	return l1+p1;
 }
 auto operator+(Line2D &l1, Line2D &l2) {

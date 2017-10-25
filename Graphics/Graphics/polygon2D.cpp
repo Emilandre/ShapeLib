@@ -39,5 +39,22 @@ int Polygon2D::operator==(const Polygon2D &p) {
 
 Polygon2D::~Polygon2D()
 {
-	//delete[] points;
+	delete[] points;
+}
+
+Polygon2D::Polygon2D(Polygon2D &py) {
+	points = new Point2D[py.numPoints];
+	numPoints = py.numPoints;
+	for (int i = 0; i < numPoints; i++) {
+		points[i] = py.points[i];
+	}
+}
+
+Polygon2D Polygon2D::operator=(const Polygon2D &py) {
+	points = new Point2D[py.numPoints];
+	numPoints = py.numPoints;
+	for (int i = 0; i < numPoints; i++) {
+		points[i] = py.points[i];
+	}
+	return *this;
 }

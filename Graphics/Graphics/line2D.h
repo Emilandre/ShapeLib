@@ -2,7 +2,6 @@
 #include <iostream>
 #include <fstream>
 #include "point2D.h"
-#include "FileHandler.h"
 class Line2D
 {
 public:
@@ -14,17 +13,19 @@ public:
 
 	Line2D() 
 		: start{ new Point2D}, end{ new Point2D } {};
+	 
+	
+	Point2D &getStart() { return *start; };
+	Point2D &getEnd() { return *end; };
 
-	 Point2D &getStart() { return *start; };
-	 Point2D &getEnd() { return *end; };
 
 	~Line2D();
-	friend auto operator+( Line2D &p1,  Point2D &p2);
-	friend auto operator+(Line2D &l1, Line2D &l2);
+	friend auto operator+( const Line2D &p1,  const Point2D &p2);
+	friend auto operator+(const Line2D &l1, const Line2D &l2);
 	int operator==(const Line2D &p) { return ((*start == *p.start) + (*end == *p.end)); };
 	
 
-	friend std::ostream& operator<<(std::ostream& os, const  Line2D);
+	friend std::ostream& operator<<(std::ostream& os, const  Line2D&);
 	friend std::istream& operator>>(std::istream& is, Line2D &l);
 
 private:

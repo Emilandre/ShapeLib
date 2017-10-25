@@ -13,20 +13,4 @@ int Point2D::operator==(const Point2D &p) {
 	}
 }
 
-//bool Point2D::Save(const std::string &fileName) {	
-//	std::ofstream ofs(fileName + ".txt", std::ofstream::app);
-//	
-//	if (ofs << *this) {
-//		ofs.close();
-//		return true;
-//	}
-//	else {
-//		ofs.close();
-//		return false;
-//	}
-//}
 
-
-Point2D::~Point2D()
-{
-}
