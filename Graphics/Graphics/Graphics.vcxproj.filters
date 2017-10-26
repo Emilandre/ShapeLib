@@ -27,9 +27,6 @@
     <ClInclude Include="OperatorOverloads.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="line2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="polygon2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -40,6 +37,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="point3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Polygon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,13 +56,16 @@
     <ClCompile Include="Point2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Line2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="polygon2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Point3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Polygon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

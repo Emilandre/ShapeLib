@@ -13,3 +13,7 @@ int Point3D::operator==(const Point3D &p) {
 		return 0;
 	}
 }
+
+std::ostream& operator<<(std::ostream& os, const Point3D &p) {
+	return os << '(' << p.x << ',' << p.y << ',' << p.z << ')';
+}

@@ -145,19 +145,21 @@
   <ItemGroup>
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="GraphicLib.h" />
-    <ClInclude Include="line2D.h" />
+    <ClInclude Include="Line.h" />
     <ClInclude Include="OperatorOverloads.h" />
     <ClInclude Include="point3D.h" />
     <ClInclude Include="point2D.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="polygon2D.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Line2D.cpp" />
+    <ClCompile Include="Line.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point3D.cpp" />
     <ClCompile Include="Point2D.cpp" />
+    <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="polygon2D.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

@@ -16,11 +16,11 @@ public:
 	const double &getY() { return y; };
 	const double &getZ() { return z; };
 
-	friend std::ostream& operator<<(std::ostream& os, const Point3D&);
-	friend std::istream& operator>>(std::istream& os, Point3D&);
+	friend std::ostream& operator<<(std::ostream& os, const Point3D &p);
+	friend std::istream& operator>>(std::istream& os, Point3D&) {};
 
 	int operator==(const Point3D &p);
-	friend auto operator+(Point3D &p1, Point3D &p2);
+	friend auto operator+(Point3D &p1, Point3D &p2) {};
 
 private:
 
@@ -29,5 +29,4 @@ private:
 	double z;
 
 };
-
 

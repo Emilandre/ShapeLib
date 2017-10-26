@@ -21,40 +21,33 @@ std::istream& operator>>(std::istream& is, Point2D &p) {
 		p.setCoordinates(x, y);
 	return is;
 }
-
-std::ostream& operator<<(std::ostream& os, const Line2D &l) {
+std::ostream& operator<<(std::ostream& os, const Line<Point2D> &l) {
 	return os << '[' << l.points[0] << '|' << l.points[1] << ']';
 }
-std::istream& operator>>(std::istream& is, Line2D &l) {
-	char c = is.peek();
-		
-	if (c == '[') {
-		is >> c;
-		is >> l.points[0];
-	}
-	c = is.peek();
-	if (c == '|') {
-		is >> c;
-		is >> l.points[1];
-	}
-	return is;
+std::ostream& operator<<(std::ostream& os, const Line<Point3D> &l) {
+	return os << '[' << l.points[0] << '|' << l.points[1] << ']';
 }
 
-
-std::ostream& operator<<(std::ostream& os, const Polygon2D &py) {
+std::ostream& operator<<(std::ostream& os, const Polygon<Point2D> &py) {
 	os << "{";
-		for (const Point2D &p : py.points) {
-			os << p;
-		}
+	for (const Point2D &p : py.points) {
+		os << p;
+	}
 	return os << "}";
 }
-std::istream& operator>>(std::istream& is, Polygon2D &py) {
+std::ostream& operator<<(std::ostream& os, const Polygon<Point3D> &py) {
+	os << "{";
+	for (const Point3D &p : py.points) {
+		os << p;
+	}
+	return os << "}";
+}
+std::istream& operator>>(std::istream& is, Polygon<Point2D> &py) {
 	std::vector<Point2D> points;
-	int numCount = 0;
 	char next = is.peek();
 	Point2D p;
 
-	if(next == '{') {
+	if (next == '{') {
 		is >> next;
 		next = is.peek();
 		while (!is.eof() && next != '}') {
@@ -63,12 +56,35 @@ std::istream& operator>>(std::istream& is, Polygon2D &py) {
 				is >> next;
 				is >> p;
 				points.push_back(p);
-				numCount++;
 			}
-			else if( next == '('){
+			else if (next == '(') {
 				is >> p;
 				points.push_back(p);
-				numCount++;
+			}
+		}
+	}
+	py.setPoints(points);
+	return is;
+}
+
+std::istream& operator>>(std::istream& is, Polygon<Point3D> &py) {
+	std::vector<Point3D> points;
+	char next = is.peek();
+	Point3D p;
+
+	if (next == '{') {
+		is >> next;
+		next = is.peek();
+		while (!is.eof() && next != '}') {
+			next = is.peek();
+			if (next == '|') {
+				is >> next;
+				is >> p;
+				points.push_back(p);
+			}
+			else if (next == '(') {
+				is >> p;
+				points.push_back(p);
 			}
 		}
 	}
