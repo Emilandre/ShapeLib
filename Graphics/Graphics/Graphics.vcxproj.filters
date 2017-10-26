@@ -24,9 +24,6 @@
     <ClInclude Include="point2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OperatorOverloads.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="line2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -40,6 +37,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="point3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="line3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="polygon3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Test3D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -60,6 +75,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Point3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Line3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="polygon3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Test3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,15 +1,15 @@
 #include "stdafx.h"
-#include "Line2D.h"
+#include "Line3D.h"
 
 
-Line2D operator+(Point2D &p1, Point2D &p2) {
-	return Line2D(p1, p2);
+Line3D operator+(Point3D &p1, Point3D &p2) {
+	return Line3D(p1, p2);
 }
 
-std::ostream& operator<<(std::ostream& os, const Line2D &l) {
+std::ostream& operator<<(std::ostream& os, const Line3D &l) {
 	return os << '[' << l.points[0] << '|' << l.points[1] << ']';
 }
-std::istream& operator>>(std::istream& is, Line2D &l) {
+std::istream& operator>>(std::istream& is, Line3D &l) {
 	char c = is.peek();
 
 	if (c == '[') {

@@ -13,3 +13,30 @@ int Point3D::operator==(const Point3D &p) {
 		return 0;
 	}
 }
+
+std::ostream& operator<<(std::ostream& os, const Point3D &p) {
+	return os << '(' << p.x << ',' << p.y << ',' << p.z << ')';
+}
+std::istream& operator>>(std::istream& is, Point3D &p) {
+	char c = is.peek();
+	double x = 0;
+	double y = 0;
+	double z = 0;
+	if (c == '(') {
+		is >> c;
+		is >> x;
+	}
+	c = is.peek();
+	if (c == ',') {
+		is >> c;
+		is >> y;
+	}
+	c = is.peek();
+	if (c == ',') {
+		is >> c;
+		is >> z;
+	}
+	is >> c;
+	p.setCoordinates(x, y, z);
+	return is;
+}

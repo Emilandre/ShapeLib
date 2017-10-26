@@ -13,4 +13,27 @@ int Point2D::operator==(const Point2D &p) {
 	}
 }
 
+std::ostream& operator<<(std::ostream& os, const Point2D &p) {
+	return os << '(' << p.x << ',' << p.y << ')';
+}
+std::istream& operator>>(std::istream& is, Point2D &p) {
+	char c = is.peek();
+	double x = 0;
+	double y = 0;
+	if (c == '(') {
+		is >> c;
+		is >> x;
+	}
+	c = is.peek();
+	if (c == ',') {
+		is >> c;
+		is >> y;
+	}
+	is >> c;
+	p.setCoordinates(x, y);
+	return is;
+}
+
+
+
 
